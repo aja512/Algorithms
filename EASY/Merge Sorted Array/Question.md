@@ -39,3 +39,9 @@ Note that because m = 0, there are no elements in nums1. The 0 is only there to 
  
 
 **Follow up:** Can you come up with an algorithm that runs in O(m + n) time?
+
+**Related Topics:** ```Arrays```, ```Two Pointers```, ```Sorting```
+
+**Hints:**
+1. You can easily solve this problem if you simply think about two elements at a time rather than two arrays. We know that each of the individual arrays is sorted. What we don't know is how they will intertwine. Can we take a local decision and arrive at an optimal solution?
+2. If you simply consider one element each at a time from the two arrays and make a decision and proceed accordingly, you will arrive at the optimal solution.
