@@ -40,3 +40,8 @@ Explanation: No even integers can be formed using the given digits.
 
 * ```3 <= digits.length <= 100```
 * ```0 <= digits[i] <= 9```
+
+**Related Topics:** ```Arrays```, ```Hash Tables```, ```Sorting```, ```Enumeration```.
+
+**Hint**
+The range of possible answers includes all even numbers between 100 and 999 inclusive. Could you check each possible answer to see if it could be formed from the digits in the array?
