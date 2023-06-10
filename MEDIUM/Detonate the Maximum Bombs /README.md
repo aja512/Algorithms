@@ -11,3 +11,19 @@ These bombs will further detonate the bombs that lie in their ranges.
 Given the list of ```bombs```, return the maximum number of bombs that can be detonated if you are allowed to detonate only one bomb.
 
 # Approach
+Use DFS to find the largest path in graph. Find largest path - run DFS from each node that has potential to detonate others. Return maxDetonated node.
+
+## Conditions:
+* If center of bomb[i] belongs to the range of bomb[j] => bomb[j] will detonate bomb[i]. 
+* If center of bomb[j] belongs to the range of bomb[i] ==> bomb[i] will detonate bomb[j].
+
+Perform DFS on visited and BombID
+
+```
+def dfs(bombID, visited):
+  visited.add(bombID)
+  for nei in g[bombID]:
+    if nei not in visited:
+      dfs(nei,visited)
+ ```
+ 
