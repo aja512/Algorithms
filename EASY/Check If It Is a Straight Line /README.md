@@ -9,6 +9,7 @@ Use the formula for slope and y-coordinates
 For list of coordinates
   if i[0] * m + b != i[1]:
     return False
-  return True
+
+return True
  ```
        
