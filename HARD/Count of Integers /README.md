@@ -8,3 +8,5 @@ You are given two numeric strings ```num1``` and ```num2``` and two integers ```
 Return the number of good integers. Since the answer may be large, return it modulo 10<sup>9</sup> + 7.
 
 Note that ```digit_sum(x)``` denotes the sum of the digits of ```x```. 
+
+# Approach
