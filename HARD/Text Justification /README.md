@@ -15,3 +15,11 @@ For the last line of text, it should be left-justified, and no extra space is in
 * The input array ```words``` contains at least one word.
 
 # Approach
+We'll build the result array line by line while iterating over words in the input. Whenever the current line gets too big, we'll appropriately format it and proceed with the next line until for loop is over. Last but not least, we'll need to left-justify the last line.
+
+Time complexity :O(n)
+There is just one for loop, which iterates over words provided as input.
+
+Space complexity: O(n + l)
+Where n is lenght of words, and l max length of words in one line. Worst case scenario l = n, which will add up to O(2n) but in asymptotic analysis we don't care about constants so final complexity is linear: O(n)
+
