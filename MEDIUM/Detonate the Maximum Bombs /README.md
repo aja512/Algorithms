@@ -27,3 +27,4 @@ def dfs(bombID, visited):
       dfs(nei,visited)
  ```
  
+[Detonate Maximum Bombs Question](https://leetcode.com/problems/detonate-the-maximum-bombs/)
