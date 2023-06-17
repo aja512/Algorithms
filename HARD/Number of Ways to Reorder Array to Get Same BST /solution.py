@@ -12,18 +12,19 @@ class Solution:
 
         # Iterate the array in reverse order
         for p in nums[::-1]: 
-            
-            # For each number p, it calculates the length of the range of numbers to the left of p (stored in h) and the length of the range of numbers to the right of p (stored in k).  
+            # k consecutive values larger than p (on the left) are already in BST if leng[p+1] > 0 indicates that. Length [p+1] and h are the respective integers in the right child BST of p.
             h,k = leng[p-1],leng[p+1] 
 
-            # Calculates the number of ways to split the range of numbers from p-h to p+k into two smaller ranges. This is done by multiplying the count of the range of numbers to the left of p (stored in cnt[p-1]), the count of the range of numbers to the right of p (stored in cnt[p+1]), and the combination of h+k and h
+            # The size of the BST rooted at p should be used to update the lengths at the rightmost and leftmost numbers in the BST (consecutive intervals). Because it won't be needed in the subsequent computation of length and cnt, the numbers in between (p-h, p+k) don't need to be updated.
+            leng[p-h]=leng[p+k]=h+k+1 
+
+            # The number of permutated arrays that can construct the BST of the left child and the right child of p is given by dp(BST rooted at p) = dp(left(p-1))*dp(right(p+1))*C(left+right,right).
             t = (cnt[p-1]*cnt[p+1]%mod)*comb(h+k,h)%mod 
 
-            # update leng and cnt arrays
-            leng[p-h]=leng[p+k]=h+k+1
-            cnt[p-h]=cnt[p+k]=t
+            # Only the cnt's rightmost and leftmost elements should be updated because those two numbers will be the only ones used in the next merge interval.
+            cnt[p-h]=cnt[p+k]=t 
 
-        # return the number of ways to reorder nums
+            # return the number of ways to reorder nums
         return (cnt[1]-1)%mod
             
             
