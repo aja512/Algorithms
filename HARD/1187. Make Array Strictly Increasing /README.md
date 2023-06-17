@@ -67,3 +67,23 @@ if d:
     return min(d.keys())
 return -1
 ```
+
+# Time Complexity
+The time complexity of the code is O(n<sup>2</sup> log n), where n is the length of arr1. The first step of the algorithm is to sort arr2, which takes O(n log n) time. The second step is to iterate through arr1 and for each element, find the minimum number of swaps needed to make it strictly increasing. This can be done by using a dictionary to store the minimum number of swaps needed to reach each element in arr1.
+The first loop iterates through arr1 once. The second loop iterates through the dictionary d once for each element in arr1. The bisect.bisect_right() function takes O(log n) time. Therefore, the total time complexity of the second step is O(n<sup>2</sup> log n).
+The third and final step of the algorithm is to return the minimum number of swaps needed to make arr1 strictly increasing. This can be done by taking the minimum value from the dictionary d. The time complexity of this step is O(1).
+
+Therefore, the overall time complexity of the algorithm is O(n<sup>2</sup> log n).
+
+# Space Complexity
+The space complexity of the code is O(n), where n is the length of the input arrays. This is because the code uses a dictionary (d) to store the minimum number of operations needed to make arr1 strictly increasing up to a certain point. The dictionary can store up to n entries, one for each element in arr1. Therefore, the space complexity is O(n).
+
+Here is a more detailed explanation of the space complexity:
+
+* The code first sorts arr2 and creates a dictionary (d) to store the minimum number of operations needed to make arr1 strictly increasing up to a certain point. The dictionary is initialized with one entry, {0: arr1[0]}.
+* The code then iterates through arr1, starting at index 1. For each element in arr1, the code checks if the element is less than the value stored in d for the current time. If it is, the code updates d to store the minimum number of operations needed to make arr1 strictly increasing up to the current point.
+* The code also checks if the element in arr1 is less than any of the elements in arr2. If it is, the code updates d to store the minimum number of operations needed to make arr1 strictly increasing up to the current point, by assigning the element in arr2 to the current time in d.
+* The code repeats this process for each element in arr1.
+* After the loop, the code checks if d is empty. If it is, then there is no way to make arr1 strictly increasing, so the code returns -1. Otherwise, the code returns the minimum number of operations stored in d.
+
+As you can see, the code only uses a dictionary (d) to store the minimum number of operations needed to make arr1 strictly increasing up to a certain point. The dictionary can store up to n entries, one for each element in arr1. Therefore, the space complexity is O(n).
